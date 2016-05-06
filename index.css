@@ -3,32 +3,47 @@
     text-align: center;
     
   }
-  #field {
-    background: url("../WDI_20_PROJECT_1/images/baliza.jpeg") no-repeat;
-    height: 200px;
-    width: 600px;
-    background-size: 400px;
+
+  .custom {
+     cursor: url("../WDI_20_PROJECT_1/images/ball.jpeg"), auto;
+  }
+
+  #baliza {
+    background: url("../WDI_20_PROJECT_1/images/baliza.png") no-repeat;
+    height: 400px;
+    width: 800px;
+    background-size: 80%;
+    /*cursor: url("../WDI_20_PROJECT_1/images/ball.jpeg"), auto;*/
+
   }
   div.ball {
     position: absolute;
     bottom: 50px;
-    left: 120px;
+    left: 320px;
     
     transition: 1s ease-in;
   }
   div.ball  {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     background: url("../WDI_20_PROJECT_1/images/ball.jpeg") no-repeat;
-    background-size: 50px;
+    background-size: 20px;
     transition: 1s ease-in-out;
   }
 
-  
-   div.ball:hover {
-   /* The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis)*/
-    transform: translate(0px,-500px);
+  div#btTests {
+    position: absolute;
+    bottom: 20px;
+    left: 160px;
   }
+
+  
+  /* The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis)*/
+
+/*   div.ball:hover {
+   
+    transform: translate(0px,-500px);
+  }*/
 /*  #field:hover div.ball div {
 
     transform: rotate(20deg);
