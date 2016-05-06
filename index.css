@@ -16,7 +16,7 @@
     
     transition: 1s ease-in;
   }
-  div.ball div {
+  div.ball  {
     width: 80px;
     height: 80px;
     background: url("../WDI_20_PROJECT_1/images/ball.jpeg") no-repeat;
@@ -25,11 +25,11 @@
   }
 
   
-  #field:hover div.ball {
+   div.ball:hover {
    /* The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis)*/
     transform: translate(0px,-500px);
   }
-  #field:hover div.ball div {
+/*  #field:hover div.ball div {
 
     transform: rotate(20deg);
-  }
+  }*/
