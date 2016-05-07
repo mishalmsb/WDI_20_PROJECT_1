@@ -4,9 +4,15 @@
 $(init)
 function init() { 
 
+  // setInterval(function() {
+  //   var keeperPos = parseInt($('#keeper').css('left'));
+  //   console.log(keeperPos);
+  // }, 500);
 
 
-
+ 
+  
+ 
 
   function getSliderX() {
         // $("#slide").change(function() {
@@ -29,31 +35,44 @@ function init() {
   
 
   $("#btShoot").click(function() {
+      // $('.ball').css("transform","translate(-130px,-245px)");
       // console.log("button test");
       // console.log($('#txBox1').val());
-      var posX = parseInt($('#txBoxX').val());
-      // var posY = parseInt($('#txBoxY').val());
+ 
       $('.ball').css("transform","translate("+getSliderX()+"px," + getSliderY() + "px)");
       
+      ballInside();
+  })
+
+
+  $("#btRestart").click(function() {
+      // console.log("button test");
+      // console.log($('#txBox1').val());
+ 
+      
+      $('ball').css("margin", "150px");
+ 
 
   })
 
-  // $("#btRestart").click(function() {
-  //     // console.log("button test");
-  //     // console.log($('#txBox1').val());
+
+  $("#field").click(function(e) {
+      var offset = $(this).offset();
+      console.log("X" + (e.pageX - offset.left));
+      console.log("Y" + (e.pageY - offset.top));
+    })
+  
+
+  
+  var ballInside = function() {
  
-  //     $('.ball').css({ 'left': '320px','bottom':'50px' });
+      $('.ball').animate({
+          margin: "190px 0 0 345px"
+      }, 500);
+  }
+  
 
-  // })
-
-
-  // $("#baliza").click(function(e) {
-  //     var offset = $(this).offset();
-  //     console.log("X" + (e.pageX - offset.left));
-  //     console.log("Y" + (e.pageX - offset.top));
-  // })
-
-
+              
 
 }
 

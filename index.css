@@ -1,42 +1,69 @@
   
   body {
     text-align: center;
-    
   }
 
-  .custom {
-     cursor: url("../WDI_20_PROJECT_1/images/ball.jpeg"), auto;
+  #gameDiv {
+    border: 1px solid black;
+    height: 600px;
+    width: 720px;
+    text-align: center;
+  }
+  #field {
+    border: 1px solid black;
+    height: 500px;
+    width: 690px;
+    text-align: center;
+    margin: 15px 0 0 15px;
   }
 
   #baliza {
-    background: url("../WDI_20_PROJECT_1/images/baliza.png") no-repeat;
-    height: 400px;
-    width: 800px;
-    background-size: 80%;
+    background: url("../WDI_20_PROJECT_1/images/baliza.png") no-repeat; 
+    height: 200px;
+    width: 640px;
+    background-size: 640px 200px;
     /*cursor: url("../WDI_20_PROJECT_1/images/ball.jpeg"), auto;*/
+    margin: 10px 0 0 25px;
+    border: 1px solid black;
+  }
 
+/*  div.ball {
   }
-  div.ball {
-    position: absolute;
-    bottom: 50px;
-    left: 320px;
-    
-    transition: 1s ease-in;
-  }
+*/
   div.ball  {
-    width: 50px;
-    height: 50px;
-    background: url("../WDI_20_PROJECT_1/images/ball.jpeg") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin: 150px 0 0 345px;
+    background: url("../WDI_20_PROJECT_1/images/ball.png") no-repeat;
     background-size: 20px;
+    /*transition: 1s ease-in;*/
     transition: 1s ease-in-out;
+    border: 1px solid black; 
   }
 
-  div#btTests {
-    position: absolute;
-    bottom: 20px;
-    left: 160px;
+
+  #slider_y{
+      transform: rotate(90deg);
+  }
+/*  div#keeper {
+      background: url("../WDI_20_PROJECT_1/images/goolkeeper.png") no-repeat;
+      left:430px; 
+      top:140px;
+      width: 40px;
+      height: 75px;
+      background-size: 40px;
+      background-color: red;
+      animation-name: keeperMove;
+      animation-duration: 4s;
+      animation: keeperMove 5s infinite;
   }
 
+  @keyframes keeperMove {
+      0%   {left:190px; top:140px;}
+      50%  {left:430px; top:140px;}
+      100%  {left:190px; top:140px;}
+
+  }*/
   
   /* The translate() method moves an element from its current position (according to the parameters given for the X-axis and the Y-axis)*/
 
@@ -46,5 +73,6 @@
   }*/
 /*  #field:hover div.ball div {
 
-    transform: rotate(20deg);
+    transform: rotate(20deg);})
+
   }*/
