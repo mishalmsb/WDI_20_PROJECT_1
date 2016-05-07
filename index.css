@@ -34,6 +34,7 @@
     width: 20px;
     height: 20px;
     margin: 150px 0 0 345px;
+    /*margin: -20px 0 0 210px;*/
     background: url("../WDI_20_PROJECT_1/images/ball.png") no-repeat;
     background-size: 20px;
     /*transition: 1s ease-in;*/
