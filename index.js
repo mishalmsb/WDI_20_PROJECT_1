@@ -1,14 +1,35 @@
 $(init)
 function init() { 
 
+  // for (var i = 0; i < 10; i++) {
+  //   //console.log(Math.floor(Math.random()*(3-1+1))+1);
+  //    console.log(Math.floor(Math.random()*(5-4+1))+4);
+  //    //console.log(Math.floor(Math.random()*(8-6+1))+6);
+  // }
+     
+var writeHtml = function(gameNumber, winner) {
+
+}
+ 
+var animePlayer = function() {
+    $('#plImg1').fadeOut("80");
+    $('#plImg2').fadeIn("90");
+    $('#plImg2').fadeOut("350");
+    $('#plImg3').fadeIn("300");
+    $('#plImg3').fadeOut("500");
+    $('#plImg1').fadeIn("90");
+}
+
+
   $("button").click(function() {
+    
       // console.log(this.id; 
     if (this.id=="btLeftBottom"){startKickOff(-30,210,1)}
     else if (this.id=="btLeftCentre"){startKickOff(-55,213,2)}
     else if (this.id=="btLeftTop"){startKickOff(-90,213,3)}
     else if (this.id=="btCentreCentre"){startKickOff(-40,345,4)}
     else if (this.id=="btCentreTop"){startKickOff(-90,345,5)}
-    else if (this.id=="btRigthBottom"){startKickOff(-5,475,6)}
+    else if (this.id=="btRigthBottom"){startKickOff(-30,475,6)}
     else if (this.id=="btRigthCentre"){startKickOff(-55,475,7)}
     else if (this.id=="btRigthTop"){startKickOff(-90,475,8)}
     else if (this.id=="btRestart"){MoveBall(150, 345); keeperMove(0,310,125)}
@@ -16,14 +37,32 @@ function init() {
   });
 
   var startKickOff = function(ballPosX, ballPosY, plMove) {
-      var comMove = Math.floor(Math.random() * 8) + 1;
+      animePlayer();
+      var comMove = computerMove(plMove);
       checkMoves(plMove,comMove);
       console.log(plMove,comMove);
       keeperInstruct(comMove);
       MoveBall(ballPosX, ballPosY);
       keeperFall();
+      setTimeout(function() {
+          MoveBall(150, 345); 
+          keeperMove(0,310,125);
+          console.log("timeout");
+          writeHtml();
+      },3000);
   };
 
+  var computerMove = function(plMove) {
+    if (plMove>=1 && plMove<=4) {
+        return (Math.floor(Math.random()*(4-1+1))+1);
+    } 
+    else if (plMove>=5 && plMove<=8) {
+        return (Math.floor(Math.random()*(8-5+1))+5);
+    }
+
+     
+    // return Math.floor((Math.random() * 10) + 1);
+  }
 
   var ballInside = function(inOut) {
 
@@ -120,6 +159,9 @@ function init() {
       
   }
 
+  var playerMove = function() {
+
+  }
 
   var checkMoves = function(playerMove, computerMove) {
       if (playerMove==computerMove) {

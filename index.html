@@ -9,26 +9,33 @@
 <body>
 
 
-  <div id="gameDiv">
+<div id="gameDiv">
   <div id="field"> 
     <div id="baliza"> 
-    <div id="keeper"></div>
-
- <!--    <div id="keeperLeftBottom1"></div>
-    <div id="keeperLeftBottom2"></div>
-    <div id="keeperLeftBottom3"></div>
-    <div id="keeperLeftBottom4"></div> -->
-
-
+      <div id="keeper"></div>
     </div>
+    <div class="ball"> </div>
+  </div>
+  
+  <div id="resultDiv">
+    <div>Results</div>
+    <div>Player 1 -- Player 2</div>
+    <div id="p1ResultDiv">0</div>
+    <div id="p2ResultDiv">0</div>
+    <div id="plScored"></div>
+    <div id="plMove">Player 1</div>
+  </div>    
+
+
+  
+  <div id="player">
+        <img src="../WDI_20_PROJECT_1/images/player1.png" id="plImg1">
+        <img src="../WDI_20_PROJECT_1/images/player2.png" id="plImg2">
+        <img src="../WDI_20_PROJECT_1/images/player3.png" id="plImg3">
+  </div>
+  
       
-    <div class="ball">
-      <div> </div>
-    </div>
-  </div>
-    
-  </div>
-
+  <div id="btWrap">
       <button id="btLeftBottom">LeftBottom</button>
       <button id="btLeftCentre">LeftCentre</button>
       <button id="btLeftTop">LeftTop</button>
@@ -42,7 +49,7 @@
       <br>
       <button id="btRestart">Restart</button>
   </div>
-
+</div> 
 
 </body>
 </html>
