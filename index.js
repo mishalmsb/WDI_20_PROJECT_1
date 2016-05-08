@@ -1,23 +1,10 @@
 $(init)
 function init() { 
 
-  // setInterval(function() {
-  //   var keeperPos = parseInt($('#keeper').css('left'));
-  //   console.log(keeperPos);
-  // }, 500);
-
-
- 
 
   $("#btLeftBottom").click(function() {
-    // $(".ball").animate({margin: "-20px 0 0 210px"}, 1500);
-    // $(".ball").animate({margin: "-40px 0 0 250px"}, 1000);
-
-    // $('.panel:nth-child(2)').delay(2000).css('background-position','0px top');
-       // positionBall("-20","0","0","210");
       var move = Math.floor(Math.random() * 3) + 1;
-      
-      // ballInside("-40", "0", "0", "250");
+      checkMoves("1",move);
       keeperInstruct(move);
       MoveBall(-20, 210);
   })
@@ -25,39 +12,31 @@ function init() {
   $("#btRestart").click(function() {
       MoveBall("150", "345");
   })
-  var ballInside = function(top,left) {
-      
-      //LeftBottom
-      //margin: -40px 0 0 250px;
-      //margin: -25px 0 0 260px;
+  var ballInside = function(goal) {
 
-      setTimeout(function() {
-          $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "250px"});
-      }, 900);
-      setTimeout(function() {
-          $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
-      }, 1500);
+      if(goal) {
+          setTimeout(function() {
+              $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "250px"});
+          }, 900);
+          setTimeout(function() {
+              $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
+          }, 1500);
+      }
+
   }
 
   var MoveBall = function(top, left) {
     $(".ball").css({"margin-top": top,"margin-right": "0px","margin-bottom": "0px","margin-left": left});
     
-    ballInside();
+    
   }
 
-  // $("#field").click(function(e) {
-  //     var offset = $(this).offset();
-  //     console.log("X" + (e.pageX - offset.left));
-  //     console.log("Y" + (e.pageY - offset.top));
-  //   })
-  
   
   $("#btLeftCentre").click(function() {
 
       console.log(Math.floor(Math.random() * 9) + 1);
   })
 
- 
 
   var keeperInstruct = function(move) {
 
@@ -109,6 +88,22 @@ function init() {
 
       });
   }
+
+  var checkMoves = function(playerMove, computerMove) {
+      if (playerMove==computerMove) {
+          console.log("defense");
+      } else {
+          console.log("goal");
+          ballInside(true);
+      }
+  }
+  // $("#field").click(function(e) {
+  //     var offset = $(this).offset();
+  //     console.log("X" + (e.pageX - offset.left));
+  //     console.log("Y" + (e.pageY - offset.top));
+  //   })
+  
+
 
 }
 
