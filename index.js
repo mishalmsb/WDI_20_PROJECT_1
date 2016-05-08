@@ -1,6 +1,3 @@
-
-
-
 $(init)
 function init() { 
 
@@ -11,80 +8,107 @@ function init() {
 
 
  
-  
- 
-
-  function getSliderX() {
-        // $("#slide").change(function() {
-        //   updateSlider(this.value);
-        //   console.log(this.value);
-        // })
-        // console.log($("#slide").val());
-        return $("#slide_x").val()
-  }
-  function getSliderY() {
-        // $("#slide").change(function() {
-        //   updateSlider(this.value);
-        //   console.log(this.value);
-        // })
-        // console.log($("#slide").val());
-        return $("#slide_y").val()
-  }
-
-  
-  
 
   $("#btLeftBottom").click(function() {
-      // $('.ball').css("transform","translate(-130px,-245px)");
-      // console.log("button test");
-      // console.log($('#txBox1').val());
- 
-      // $('.ball').css("transform","translate("+getSliderX()+"px," + getSliderY() + "px)");
+    // $(".ball").animate({margin: "-20px 0 0 210px"}, 1500);
+    // $(".ball").animate({margin: "-40px 0 0 250px"}, 1000);
 
-      positionBall("-20","0","0","210");
+    // $('.panel:nth-child(2)').delay(2000).css('background-position','0px top');
+       // positionBall("-20","0","0","210");
+      var move = Math.floor(Math.random() * 3) + 1;
       
-      // ballInside();
+      // ballInside("-40", "0", "0", "250");
+      keeperInstruct(move);
+      MoveBall(-20, 210);
   })
-
 
   $("#btRestart").click(function() {
-       
-      // console.log($('#txBox1').val());
+      MoveBall("150", "345");
+  })
+  var ballInside = function(top,left) {
       
-      positionBall("150","0","0","345");
+      //LeftBottom
+      //margin: -40px 0 0 250px;
+      //margin: -25px 0 0 260px;
 
- 
-      // X358
-      // Y373
+      setTimeout(function() {
+          $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "250px"});
+      }, 900);
+      setTimeout(function() {
+          $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
+      }, 1500);
+  }
 
+  var MoveBall = function(top, left) {
+    $(".ball").css({"margin-top": top,"margin-right": "0px","margin-bottom": "0px","margin-left": left});
+    
+    ballInside();
+  }
+
+  // $("#field").click(function(e) {
+  //     var offset = $(this).offset();
+  //     console.log("X" + (e.pageX - offset.left));
+  //     console.log("Y" + (e.pageY - offset.top));
+  //   })
+  
+  
+  $("#btLeftCentre").click(function() {
+
+      console.log(Math.floor(Math.random() * 9) + 1);
   })
 
- var positionBall = function(top,right,bottom,left) {
-
-    $(".ball").css({"margin-top":top+"px","margin-right":right+"px","margin-bottom":bottom+"px","margin-left":left+"px"});
- }
-
-  
-
-
-  $("#field").click(function(e) {
-      var offset = $(this).offset();
-      console.log("X" + (e.pageX - offset.left));
-      console.log("Y" + (e.pageY - offset.top));
-    })
-  
-
-  
-  var ballInside = function(pos) {
  
-      
-      $('.ball').animate({
-          margin: "190px 0 0 345px"
-      }, 500);
+
+  var keeperInstruct = function(move) {
+
+      switch(move) {
+          case 1: //keeperMoveLeftBottom
+            keeperMove("-90","185","160");
+            console.log(move)
+              break;
+          case 2: //keeperMoveLeftCentre
+            keeperMove("-90","185","120");
+            console.log(move)
+            break;          
+          case 3: //keeperMoveLeftTop
+            keeperMove("-90","185","90");
+            console.log(move)
+            break;         
+          case 4: // keeperMoveCenter
+            keeperMove("-90","185","160");
+            console.log(move)
+            break;          
+          case 5: // keeperMoveTop
+            keeperMove("-90","185","160");
+            console.log(move)
+            break;          
+          case 6: // keeperMoveRigthBottom
+            keeperMove("-90","185","160");
+            console.log(move)
+            break;          
+          case 7: //keeperMoveRigthCentre
+            keeperMove("-90","185","160");
+            console.log(move)
+            break;          
+          case 8: //keeperMoveRigthTop
+            keeperMove("-90","185","160");
+            console.log(move)
+            break; 
+          default:
+              console.log(move);
+      }
   }
   
+  var keeperMove = function(rotate,margLeft,margRigth) {
+    console.log(margRigth);
+      $("#keeper").css({
+      
+        "transform": "rotate("+rotate+"deg)", 
+        "margin-left": +margLeft+"px",
+        "margin-top": +margRigth+"px"
 
-              
+      });
+  }
 
 }
 

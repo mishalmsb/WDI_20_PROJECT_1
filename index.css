@@ -34,7 +34,7 @@
     width: 20px;
     height: 20px;
     margin: 150px 0 0 345px;
-    /*margin: -20px 0 0 210px;*/
+    /*margin: -25px 0 0 260px;*/
     background: url("../WDI_20_PROJECT_1/images/ball.png") no-repeat;
     background-size: 20px;
     /*transition: 1s ease-in;*/
@@ -46,20 +46,20 @@
   #slider_y{
       transform: rotate(90deg);
   }
-/*  div#keeper {
+  div#keeper {
       background: url("../WDI_20_PROJECT_1/images/goolkeeper.png") no-repeat;
-      left:430px; 
-      top:140px;
+      margin: 130px 0 0 315px;
       width: 40px;
       height: 75px;
       background-size: 40px;
-      background-color: red;
+      transition: 1s ease-in-out;
+/*      background-color: red;
       animation-name: keeperMove;
       animation-duration: 4s;
-      animation: keeperMove 5s infinite;
+      animation: keeperMove 5s infinite;*/
   }
 
-  @keyframes keeperMove {
+  /*@keyframes keeperMove {
       0%   {left:190px; top:140px;}
       50%  {left:430px; top:140px;}
       100%  {left:190px; top:140px;}
