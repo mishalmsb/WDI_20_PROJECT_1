@@ -18,7 +18,7 @@
   }
 
   #baliza {
-    background: url("../WDI_20_PROJECT_1/images/baliza.png") no-repeat; 
+    background: url("../WDI_20_PROJECT_1/images/baliza1.png") no-repeat; 
     height: 200px;
     width: 640px;
     background-size: 640px 200px;
@@ -34,12 +34,12 @@
     width: 20px;
     height: 20px;
     margin: 150px 0 0 345px;
-    /*margin: -25px 0 0 260px;*/
+    /*margin: -90px 0 0 475px;*/
     background: url("../WDI_20_PROJECT_1/images/ball.png") no-repeat;
     background-size: 20px;
     /*transition: 1s ease-in;*/
     transition: 1s ease-in-out;
-    border: 1px solid black; 
+    /*border: 1px solid black;*/ 
   }
 
 
@@ -48,7 +48,10 @@
   }
   div#keeper {
       background: url("../WDI_20_PROJECT_1/images/goolkeeper.png") no-repeat;
-      margin: 130px 0 0 315px;
+      /*margin: 105px 0 0 310px;*/
+      /*transform: rotate(90deg);*/
+
+      margin: 125px 0 0 310px;
       width: 40px;
       height: 75px;
       background-size: 40px;
