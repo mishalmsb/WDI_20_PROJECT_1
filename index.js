@@ -7,9 +7,7 @@ function init() {
   //    //console.log(Math.floor(Math.random()*(8-6+1))+6);
   // }
      
-var writeHtml = function(gameNumber, winner) {
 
-}
  
 var animePlayer = function() {
     $('#plImg1').fadeOut("80");
@@ -37,19 +35,36 @@ var animePlayer = function() {
   });
 
   var startKickOff = function(ballPosX, ballPosY, plMove) {
+      
+      var counter = parseInt($('#counterDiv').text()) + 1;
+
       animePlayer();
       var comMove = computerMove(plMove);
       checkMoves(plMove,comMove);
-      console.log(plMove,comMove);
+      // console.log(plMove,comMove);
       keeperInstruct(comMove);
       MoveBall(ballPosX, ballPosY);
       keeperFall();
       setTimeout(function() {
           MoveBall(150, 345); 
           keeperMove(0,310,125);
-          console.log("timeout");
-          writeHtml();
+          // console.log("timeout");
+          if ($("#plMove").text() == "Player 1 Turn") {
+              $("#plMove").text("Player 2 Turn")
+          } else {
+              $("#plMove").text("Player 1 Turn")
+          }
+          
       },3000);
+      
+      if (counter < 4) { 
+        console.log(counter);
+        $('#counterDiv').text(counter);
+      } else {
+        $('#counterDiv').text("GAME OVER");
+      }
+ 
+      
   };
 
   var computerMove = function(plMove) {
@@ -66,10 +81,14 @@ var animePlayer = function() {
 
   var ballInside = function(inOut) {
 
+      // console.log("margin" + $(".ball").css("margin-left"))
+      // var marLeft = parseInt("margin" + $(".ball").css("margin-left")) - 345
+
       if(inOut=="in") {
           setTimeout(function() {
               $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "250px"});
           }, 900);
+          // console.log("margin" + $(".ball").css("margin-left"));
           // setTimeout(function() {
           //     $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
           // }, 1500);
@@ -78,7 +97,9 @@ var animePlayer = function() {
           setTimeout(function() {
               $(".ball").css({"margin-top": "30px","margin-right": "0px","margin-bottom": "0px","margin-left": "170px"});
           }, 900);
+          // console.log("margin" + $(".ball").css("margin-left"));
       }
+
 
   }
 
@@ -92,46 +113,36 @@ var animePlayer = function() {
       switch(move) {
           case 1: //keeperMoveLeftBottom
             keeperMove("-90","205","140");
-            console.log(move)
               break;
           case 2: //keeperMoveLeftCentre
             keeperMove("-90","205","120");
-            console.log(move)
             break;          
           case 3: //keeperMoveLeftTop
             keeperMove("-90","205","90");
-            console.log(move)
             break;
-
-          case 4: // keeperMoveCenter
+         case 4: // keeperMoveCenter
             keeperMove("0","310","135");
-            console.log(move)
             break;          
           case 5: // keeperMoveCenterTop
             keeperMove("0","310","105");
-            console.log(move)
             break;
 
           case 6: // keeperMoveRigthBottom
             keeperMove("90","410","140");
-            console.log(move)
             break;          
           case 7: //keeperMoveRigthCentre
             keeperMove("90","410","120");
-            console.log(move)
             break;          
           case 8: //keeperMoveRigthTop
             keeperMove("90","410","90");
-            console.log(move)
             break; 
-
           default:
-              console.log(move);
+            console.log(move);
       }
   }
   
   var keeperMove = function(rotate,margLeft,margTop) {
-    console.log(margTop);
+    // console.log(margTop);
       $("#keeper").css({
       
         "transform": "rotate("+rotate+"deg)", 
@@ -140,6 +151,8 @@ var animePlayer = function() {
 
       });
   }
+
+
 
   var keeperFall = function() {
       setTimeout(function() {
@@ -167,19 +180,56 @@ var animePlayer = function() {
       if (playerMove==computerMove) {
           console.log("defense");
           ballInside("out");
+          writeHtml("missed", "missed");
       } else {
-          console.log("goal");
+          console.log($("#plMove").text());
           ballInside("in");
+
+          if ($("#plMove").text() == "Player 1 Turn") {
+              writeHtml("p1", "Goal");
+              // console.log("writeHtmlif")
+          } else if ($("#plMove").text() == "Player 2 Turn"){
+              writeHtml("p2", "Goal");
+              // console.log("writeHtmlelse");
+          }
+          
       }
   }
 
+  var writeHtml = function(winner, goal) {
+      
+      console.log(winner);
+
+      $('#plScored').text(goal);
+
+      var p1 = parseInt($('#p1ResultDiv').text()) + 1;
+      var p2 = parseInt($('#p2ResultDiv').text()) + 1;
+      
+      
+      if (winner=="p1") { 
+        $('#p1ResultDiv').text(p1);
+        // console.log("writeHtmlif")
+      }
+      else if (winner=="p2") { 
+        $('#p2ResultDiv').text(p2);
+        // console.log("writeHtmlelse")
+      };
+
+
+      // if (p1>1 || p2>1) {
+      //      $('#plScored').text("Game Over");
+      // } 
+
+
+      // console.log(p1, p2);
+  }
   // $("#field").click(function(e) {
   //     var offset = $(this).offset();
   //     console.log("X" + (e.pageX - offset.left));
   //     console.log("Y" + (e.pageY - offset.top));
   //   })
   
-
+  
 
 }
 
