@@ -29,6 +29,11 @@ var animePlayer = function() {
 
   var startKickOff = function(ballPosX, ballPosY, plMove) {
       
+      run([0,3,6,0]);
+
+      $("#player").animateSprite('restart');
+      
+
       var counter = parseInt($('#counterDiv').text()) + 1;
 
       animePlayer();
@@ -55,9 +60,9 @@ var animePlayer = function() {
         $('#counterDiv').text(counter);
       } else {
         $('#counterDiv').text("GAME OVER");
+          $("#restartBt").hide();
           $("#restartBt").show();
       }
- 
       
   };
 
@@ -79,10 +84,14 @@ var animePlayer = function() {
       // var marLeft = parseInt("margin" + $(".ball").css("margin-left")) - 345
 
       if(inOut=="in") {
+          console.log("margin" + $(".ball").css("margin-left"));
+
           setTimeout(function() {
+              console.log("margin" + $(".ball").css("margin-left"));
               $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "250px"});
           }, 900);
-          // console.log("margin" + $(".ball").css("margin-left"));
+
+          console.log("margin" + $(".ball").css("margin-left"));
           // setTimeout(function() {
           //     $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
           // }, 1500);
@@ -209,14 +218,29 @@ var animePlayer = function() {
         // console.log("writeHtmlelse")
       };
 
-
       // if (p1>1 || p2>1) {
       //      $('#plScored').text("Game Over");
       // } 
 
-
       // console.log(p1, p2);
   }
+
+  var run = function(walkRight) {
+      $(function() {
+          $("#player").animateSprite({
+              fps: 15,
+              animations: {
+                  walk: walkRight
+                  // walkLeft: [15, 14, 13, 12, 11, 10, 9, 8],
+                  // walkCrazy: [0, 14, 2, 12, 3, 10, 4, 8]
+              },
+              loop: false,
+          });
+      });      
+  }
+  
+
+
   // $("#field").click(function(e) {
   //     var offset = $(this).offset();
   //     console.log("X" + (e.pageX - offset.left));

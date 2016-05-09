@@ -2,8 +2,128 @@
 <html>
 <head>
   <title>sprite test</title>
+
+    <style type="text/css">
+
+      #gameDiv {
+        border: 1px solid black;
+        height: 200px;
+        width: 160px;
+      }
+      #keeper {
+        margin: 20px 0 0 20px;
+        border: 1px solid black;
+        height: 140px;
+        width: 108px;
+        background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png")
+      }
+
+    </style>
+ 
+    
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="jquery.animateSprite.js"></script>
+
+   
+
+    <script type="text/javascript"> 
+  
+
+$(init)
+function init() {
+    var originalFps = 12;
+    var run = function() {
+        ($(function() {
+            $("#keeper").animateSprite({
+                fps: 12,
+                animations: {
+                    
+                    walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+                    walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
+                    
+                },
+                loop: false
+            });
+        }));   
+
+        console.log($("#keeper").animateSprite.animations);
+     
+    }
+    
+    // $("#keeper").animateSprite('frame', 1);
+    // $('#keeper').animateSprite('play', 'walkCrazy')
+    
+    $('#play').on('click', function(){
+         run();
+        // $("#keeper").animateSprite('play', 'walkLeft'); 
+        $("#keeper").animateSprite('restart');
+        
+    });
+
+    $('#stop').on('click', function(){
+        
+        $("#keeper").animateSprite('restart'); 
+    });
+
+
+}
+ 
+
+
+        // var originalFps = 12;
+        // $(function() {
+        //     $("#keeper").animateSprite({
+        //         fps: 5,
+        //         loop: true,
+        //          autoplay: true,
+        //         animations: {
+        //             walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+        //             walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
+        //         }
+ 
+        //     });
+
+
+        
+
+        // // $('.scott').animateSprite('stopAnimation');
+
+        //         // $('.ramona').animateSprite('play', 'walkLeft');
+        //         // $('.ramona').animateSprite('play', 'walkRight');
+        //         // $('.scott').animateSprite('play', 'walkLeft');
+        //         // $('.scott').animateSprite('play', 'walkRight');
+        //         // $('.scott').animateSprite('stopAnimation');
+        //         // $('.scott').animateSprite('resumeAnimation');
+        //         // $('.scott').animateSprite('restartAnimation');
+                
+        //         // $('.scott').animateSprite('frame', 3);
+        //         // originalFps = (originalFps === 12) ? 3 : 12;
+        //         // $('.ramona').remove();
+        // });
+        
+        // $('#left').on('click', function(e){
+        //   e.preventdefault();
+        //     $('#keeper').animateSprite('play', 'walkLeft');
+        //     console.log("test");
+        // });
+
+
+
+
+
+
+
+
+
+
+    </script>
+
 </head>
 <body>
-
+    <div id="gameDiv"> 
+        <div id="keeper"></div>
+    </div>
+    <button id="play">play</button>
+    <button id="stop">stop</button>
 </body>
 </html>

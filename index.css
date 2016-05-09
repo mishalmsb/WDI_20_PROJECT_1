@@ -54,13 +54,17 @@
   }
 
   div#player  {
+    
+    margin: -185px 0 90px 320px;
+    height: 80px;
+    width: 60px;
+    background-size: 480px 160px;
+    background-repeat: no-repeat;
 
-    margin: -275px 0 90px 380px;
-    width: 50px;
-    height: 95px;
-    background-size: 50px;
-    transition: 1s ease-in-out;/ 
+    /*border: 1px solid black;*/
+    background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png");
   }
+
   img {
     position: absolute;
     width: 50px;
