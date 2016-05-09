@@ -1,13 +1,7 @@
 $(init)
 function init() { 
 
-  // for (var i = 0; i < 10; i++) {
-  //   //console.log(Math.floor(Math.random()*(3-1+1))+1);
-  //    console.log(Math.floor(Math.random()*(5-4+1))+4);
-  //    //console.log(Math.floor(Math.random()*(8-6+1))+6);
-  // }
-     
-
+  $("#restartBt").hide();
  
 var animePlayer = function() {
     $('#plImg1').fadeOut("80");
@@ -17,7 +11,6 @@ var animePlayer = function() {
     $('#plImg3').fadeOut("500");
     $('#plImg1').fadeIn("90");
 }
-
 
   $("button").click(function() {
     
@@ -62,6 +55,7 @@ var animePlayer = function() {
         $('#counterDiv').text(counter);
       } else {
         $('#counterDiv').text("GAME OVER");
+          $("#restartBt").show();
       }
  
       
