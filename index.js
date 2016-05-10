@@ -1,14 +1,9 @@
 $(init)
 function init() { 
 
-  
   var numbGames = 10;
-  
-  // audio.play();
-  
 
   var goalSound = function (goal) {
-      //event when mouse is over the button
       var gAudio = document.getElementById("audioGoal");
 
       if (goal=="in") {
@@ -17,31 +12,22 @@ function init() {
       } else if (goal=="out"){
           gAudio.src = "sounds/missed.mp3";
       } 
-      // else {
-      //     gAudio.src = "sounds/crowd2.mp3";
-      // }
       gAudio.play();
-
       var bgAudio = document.getElementById("audioCrowd");
       bgAudio.src = "sounds/crowd2.mp3";
       bgAudio.loop = true;
       bgAudio.play();
-      
   }
   goalSound();
+
 
   $("#btRest").hide();
   $("#goalDiv").hide();
   $("#missedDiv").hide();
   $("#plScored").hide();
-  // $("#btWrap").hide();
   
-  
-
 
   $("button").click(function() {
-    
-      // console.log(this.id; 
     if (this.id=="btLeftBottom"){startKickOff(-25,210,1)}
     else if (this.id=="btLeftCentre"){startKickOff(-55,213,2)}
     else if (this.id=="btLeftTop"){startKickOff(-90,213,3)}
@@ -51,12 +37,9 @@ function init() {
     else if (this.id=="btRigthCentre"){startKickOff(-55,475,7)}
     else if (this.id=="btRigthTop"){startKickOff(-90,475,8)}
     else if (this.id=="btRestart"){restartGame()}
-
   });
 
   var restartGame = function() {
-
-
       $('#plScored').text("");
       $('#p1ResultDiv').text(0);
       $('#p2ResultDiv').text(0);
@@ -64,38 +47,25 @@ function init() {
       $('#plMove').text("Player 1 Turn");
       $("#btRest").hide();
       $("#btWrap").show();
- 
   }
 
   var startKickOff = function(ballPosX, ballPosY, plMove) {
-      
-      // run([0,3,6,0]);
-
-      // $("#player").animateSprite('restart');
-      
-
       var counter = parseInt($('#counterDiv').text()) + 1;
 
-       animePlayer();
+      
+      animePlayer();
       var comMove = computerMove(plMove);
       checkMoves(plMove,comMove);
-      // console.log(plMove,comMove);
       keeperInstruct(comMove);
       MoveBall(ballPosX, ballPosY);
       keeperFall();
       setTimeout(function() {
           MoveBall(150, 345); 
           keeperMove(0,310,125);
-          // console.log("timeout");
-          if ($("#plMove").text() == "Player 1 Turn") {
-              $("#plMove").text("Player 2 Turn")
-          } else {
-              $("#plMove").text("Player 1 Turn")
-          }
-          
+          nextPlayer();
       },3000);
-      setTimeout(function() {
-       
+
+      setTimeout(function() {      
         $("#goalDiv").hide();
         $("#missedDiv").hide();
       },4000);
@@ -113,11 +83,15 @@ function init() {
           $("#btWrap").hide();
           $("#btRest").show();
           $('#plMove').text("");
+          if (p1 > p2) {
+              $("#plMove").text("Player 1 Wins");
+          } else {
+            $("#plMove").text("Player 2 Wins");
+          }
+          
       };
       $("#goalDiv").hide();
-
       
-
   };
 
   var computerMove = function(plMove) {
@@ -129,21 +103,12 @@ function init() {
     }
     else if (plMove>=6 && plMove<=8) {
         return (Math.floor(Math.random()*(8-6+1))+6);
-    }
-     
-    // return Math.floor((Math.random() * 10) + 1);
+    }    
   }
 
   var ballInside = function(inOut) {
 
-      
-
-      // console.log("margin" + $(".ball").css("margin-left"))
-      // var marLeft = parseInt("margin" + $(".ball").css("margin-left")) - 345
-          
       if(inOut=="in") {
-          
-            
             setTimeout(function() {
                 console.log("margin" + $(".ball").css("margin-left"));
                 $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "350px"});
@@ -153,7 +118,6 @@ function init() {
                $("#goalDiv").show();
                goalSound();
             }, 2500);
-            
  
       } else if (inOut=="out") { 
           goalSound("out");
@@ -164,18 +128,15 @@ function init() {
                $("#missedDiv").show();
           }, 2500);
       }
-
-
   }
 
   var MoveBall = function(top, left) {
     $(".ball").css({"margin-top": top,"margin-right": "0px","margin-bottom": "0px","margin-left": left});
-    
   }
 
   var keeperInstruct = function(move) {
 
-      switch(move) {
+      switch(move) { 
           case 1: //keeperMoveLeftBottom
             keeperMove("-90","205","140");
               break;
@@ -191,7 +152,6 @@ function init() {
           case 5: // keeperMoveCenterTop
             keeperMove("0","310","105");
             break;
-
           case 6: // keeperMoveRigthBottom
             keeperMove("90","410","140");
             break;          
@@ -207,24 +167,18 @@ function init() {
   }
   
   var keeperMove = function(rotate,margLeft,margTop) {
-    // console.log(margTop);
       $("#keeper").css({
-      
         "transform": "rotate("+rotate+"deg)", 
         "margin-left": +margLeft+"px",
         "margin-top": +margTop+"px"
-
       });
   }
-
-
 
   var keeperFall = function() {
       setTimeout(function() {
           $("#keeper").css({
             "transition": "1s ease-in-out",
             "margin-top": "140px",
-            // "transform": "rotate(0deg)"
           });
       }, 800);
       
@@ -237,8 +191,6 @@ function init() {
       
   }
 
-  
-
   var checkMoves = function(playerMove, computerMove) {
       if (playerMove==computerMove) {
           console.log("defense");
@@ -250,62 +202,26 @@ function init() {
 
           if ($("#plMove").text() == "Player 1 Turn") {
               writeHtml("p1", "Goal");
-              // console.log("writeHtmlif")
           } else if ($("#plMove").text() == "Player 2 Turn"){
               writeHtml("p2", "Goal");
-              // console.log("writeHtmlelse");
           }
-          
       }
   }
 
   var writeHtml = function(winner, goal) {
-      
-      console.log(winner);
 
       $('#plScored').text(goal);
 
       var p1 = parseInt($('#p1ResultDiv').text()) + 1;
       var p2 = parseInt($('#p2ResultDiv').text()) + 1;
       
-      
       if (winner=="p1") { 
         $('#p1ResultDiv').text(p1);
-        // console.log("writeHtmlif")
       }
       else if (winner=="p2") { 
         $('#p2ResultDiv').text(p2);
-        // console.log("writeHtmlelse")
       };
-
-      // if (p1>1 || p2>1) {
-      //      $('#plScored').text("Game Over");
-      // } 
-
-      // console.log(p1, p2);
   }
-
-  // var run = function(walkRight) {
-  //     $(function() {
-  //         $("#player").animateSprite({
-  //             fps: 15,
-  //             animations: {
-  //                 walk: walkRight
-  //                 // walkLeft: [15, 14, 13, 12, 11, 10, 9, 8],
-  //                 // walkCrazy: [0, 14, 2, 12, 3, 10, 4, 8]
-  //             },
-  //             loop: false,
-  //         });
-  //     });      
-  // }
-  
-
-
-  // $("#field").click(function(e) {
-  //     var offset = $(this).offset();
-  //     console.log("X" + (e.pageX - offset.left));
-  //     console.log("Y" + (e.pageY - offset.top));
-  //   })
   
   var animePlayer = function() {
       $('#plImg1').fadeOut("80");
@@ -315,6 +231,33 @@ function init() {
       $('#plImg3').fadeOut("500");
       $('#plImg1').fadeIn("90");
   }
+
+ var nextPlayer = function() {
+     if ($("#plMove").text() == "Player 1 Turn") {
+         $("#plMove").text("Player 2 Turn");
+         chgPlImg();
+     } else {
+         $("#plMove").text("Player 1 Turn");
+         chgPlImg();
+     }
+ }
+
+ var chgPlImg = function() {
+      if ($("#plMove").text() == "Player 1 Turn") {
+          $("#plImg1").attr("src","images/player1.png");
+          $("#plImg2").attr("src","images/player2.png");
+          $("#plImg3").attr("src","images/player3.png");
+      } else {
+          $("#plImg1").attr("src","images/player4.png");
+          $("#plImg2").attr("src","images/player5.png");
+          $("#plImg3").attr("src","images/player6.png");
+      }
+ }
+  // $("#field").click(function(e) {
+  //     var offset = $(this).offset();
+  //     console.log("X" + (e.pageX - offset.left));
+  //     console.log("Y" + (e.pageY - offset.top));
+  //   })
 
 }
 
