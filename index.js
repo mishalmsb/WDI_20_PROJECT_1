@@ -102,7 +102,7 @@ function init() {
       var p1 = parseInt($('#p1ResultDiv').text());
       var p2 = parseInt($('#p2ResultDiv').text());
       console.log(p1, p2)
-      if (counter>numbGames && p1==p2) {
+      if (counter==numbGames && p1==p2) {
         numbGames=numbGames+2;
       }
       if (counter < numbGames) { 
@@ -121,13 +121,15 @@ function init() {
   };
 
   var computerMove = function(plMove) {
-    if (plMove>=1 && plMove<=4) {
-        return (Math.floor(Math.random()*(4-1+1))+1);
+    if (plMove>=1 && plMove<=3) {
+        return (Math.floor(Math.random()*(3-1+1))+1);
     } 
-    else if (plMove>=5 && plMove<=8) {
-        return (Math.floor(Math.random()*(8-5+1))+5);
+    else if (plMove>=4 && plMove<=5) {
+        return (Math.floor(Math.random()*(5-4+1))+4);
     }
-
+    else if (plMove>=6 && plMove<=8) {
+        return (Math.floor(Math.random()*(8-6+1))+6);
+    }
      
     // return Math.floor((Math.random() * 10) + 1);
   }
