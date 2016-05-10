@@ -1,12 +1,14 @@
   
   body {
     text-align: center;
+    width: 1280px;
+    height: 720px;
   }
 
   #everything {
     height: 600px;
     width: 750px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     /*margin: 0 auto;*/
   }
   
@@ -31,7 +33,7 @@
     border: 1px solid black;
     height: 450px;
     width: 600px;
-    
+    display: none;
     margin: 50px 0 0 55px;
     background: url("images/goal.png"); 
     background-size: 600px 450px;
@@ -39,13 +41,15 @@
     /*left: -100px;*/
     top: -5px;
   }
-
+  #plScored {
+    display: none;
+  }
   #missedDiv {
     
     border: 1px solid black;
     height: 450px;
     width: 600px;
-    
+    display: none;
     margin: 50px 0 0 55px;
     background: url("images/missed.png"); 
     background-size: 600px 450px;
@@ -79,7 +83,6 @@
   }
 
   div#player  {
-    
     margin: -185px 0 90px 320px;
     height: 80px;
     width: 60px;
@@ -90,18 +93,31 @@
     /*background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png");*/
   }
 
+  
+  #plImg2, #plImg3 {
+    display: none;
+  }
+  #plImg1 {
+      background: url("images/player1.png");
+      background-size: 50px 95px;
+  }
+  #plImg2 {
+      background: url("images/player2.png");
+      background-size: 50px 95px;
+  }
+  #plImg3 {
+      background: url("images/player3.png");
+      background-size: 50px 95px;
+  }
+
   img {
     position: absolute;
     width: 50px;
     height: 95px;
     left: 380px;
     top: 340px;
-
+    border: none;
   }
-  #plImg2, #plImg3 {
-    display: none;
-  }
-  
 div#p1ResultDiv, div#p2ResultDiv {
   /*border: 1px solid white;*/
   height: 30px;
@@ -168,7 +184,7 @@ div#keeper {
 }
 
 #btWrap {
-  margin: 200px 0 0 20px;
+  margin: 260px 0 0 20px;
   height: 220px;
   width: 170px;
   /*border: 1px solid black;*/

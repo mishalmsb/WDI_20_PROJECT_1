@@ -18,13 +18,11 @@ function init() {
       bgAudio.loop = true;
       bgAudio.play();
   }
-  goalSound();
+  
 
-
-  $("#btRest").hide();
-  $("#goalDiv").hide();
-  $("#missedDiv").hide();
-  $("#plScored").hide();
+  // $("#goalDiv").hide();
+  // $("#missedDiv").hide();
+  // $("#plScored").hide();
   
 
   $("button").click(function() {
@@ -50,15 +48,14 @@ function init() {
   }
 
   var startKickOff = function(ballPosX, ballPosY, plMove) {
-      var counter = parseInt($('#counterDiv').text()) + 1;
-
-      
+     
       animePlayer();
       var comMove = computerMove(plMove);
       checkMoves(plMove,comMove);
       keeperInstruct(comMove);
       MoveBall(ballPosX, ballPosY);
       keeperFall();
+
       setTimeout(function() {
           MoveBall(150, 345); 
           keeperMove(0,310,125);
@@ -69,31 +66,34 @@ function init() {
         $("#goalDiv").hide();
         $("#missedDiv").hide();
       },4000);
-      var p1 = parseInt($('#p1ResultDiv').text());
-      var p2 = parseInt($('#p2ResultDiv').text());
-      console.log(p1, p2)
-      if (counter==numbGames && p1==p2) {
-        numbGames=numbGames+2;
-      }
-      if (counter < numbGames) { 
-        console.log(counter);
-        $('#counterDiv').text(counter);
-      } else {
-        $('#counterDiv').text("GAME OVER");
-          $("#btWrap").hide();
-          $("#btRest").show();
-          $('#plMove').text("");
-          if (p1 > p2) {
-              $("#plMove").text("Player 1 Wins");
-          } else {
-            $("#plMove").text("Player 2 Wins");
-          }
-          
-      };
+
+      checkGameStatus();
       $("#goalDiv").hide();
       
   };
 
+  var checkGameStatus = function() {
+    var counter = parseInt($('#counterDiv').text()) + 1;
+    var p1 = parseInt($('#p1ResultDiv').text());
+    var p2 = parseInt($('#p2ResultDiv').text());
+    if (counter==numbGames && p1==p2) {
+      numbGames=numbGames+2;
+    }
+    if (counter < numbGames) { 
+      $('#counterDiv').text(counter);
+    } else {
+      $('#counterDiv').text("GAME OVER");
+        $("#btWrap").hide();
+        $("#btRest").show();
+        $('#plMove').text("");
+         if (p1 > p2) {
+             $("#plMove").text("Player 1 Wins");
+         } else {
+           $("#plMove").text("Player 2 Wins");
+         }   
+    }
+
+  }
   var computerMove = function(plMove) {
     if (plMove>=1 && plMove<=3) {
         return (Math.floor(Math.random()*(3-1+1))+1);
@@ -110,7 +110,6 @@ function init() {
 
       if(inOut=="in") {
             setTimeout(function() {
-                console.log("margin" + $(".ball").css("margin-left"));
                 $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "350px"});
                 goalSound("in");
             }, 900);
@@ -118,7 +117,6 @@ function init() {
                $("#goalDiv").show();
                goalSound();
             }, 2500);
- 
       } else if (inOut=="out") { 
           goalSound("out");
           setTimeout(function() {
@@ -188,16 +186,14 @@ function init() {
             "transform": "rotate(0deg)"
           });
       }, 1000);
-      
   }
 
   var checkMoves = function(playerMove, computerMove) {
       if (playerMove==computerMove) {
-          console.log("defense");
+          
           ballInside("out");
           writeHtml("missed", "missed");
       } else {
-          console.log($("#plMove").text());
           ballInside("in");
 
           if ($("#plMove").text() == "Player 1 Turn") {
@@ -236,10 +232,10 @@ function init() {
      if ($("#plMove").text() == "Player 1 Turn") {
          $("#plMove").text("Player 2 Turn");
          chgPlImg();
-     } else {
+     } else if ($("#plMove").text() == "Player 2 Turn"){
          $("#plMove").text("Player 1 Turn");
          chgPlImg();
-     }
+     } 
  }
 
  var chgPlImg = function() {
@@ -259,6 +255,8 @@ function init() {
   //     console.log("Y" + (e.pageY - offset.top));
   //   })
 
+  goalSound();
+  restartGame();
 }
 
     
