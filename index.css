@@ -15,17 +15,46 @@
     width: 690px;
     text-align: center;
     margin: 15px 0 0 15px;
+    background: url("../WDI_20_PROJECT_1/images/field.png") no-repeat;
+    background-size: 690px 500px;
+  }
+  #goalDiv {
+    /*margin-top: -300px;*/
+    border: 1px solid black;
+    height: 500px;
+    width: 690px;
+    
+    margin: 15px 0 0 15px;
+    background: url("../WDI_20_PROJECT_1/images/goal.png"); 
+    background-size: 670px 480px;
+    position: absolute;
+    /*left: -100px;*/
+    top: -5px;
+  }
 
+  #missedDiv {
+    /*margin-top: -300px;*/
+    border: 1px solid black;
+    height: 500px;
+    width: 690px;
+    
+    margin: 15px 0 0 15px;
+    background: url("../WDI_20_PROJECT_1/images/missed.jpeg"); 
+    background-size: 670px 480px;
+    position: absolute;
+    /*left: -100px;*/
+    top: -5px;
   }
 
   #baliza {
-    background: url("../WDI_20_PROJECT_1/images/baliza1.png") no-repeat; 
+    background: url("../WDI_20_PROJECT_1/images/baliza.png") no-repeat; 
     height: 200px;
     width: 640px;
     background-size: 640px 200px;
     /*cursor: url("../WDI_20_PROJECT_1/images/ball.jpeg"), auto;*/
     margin: 10px 0 0 25px;
     border: 1px solid black;
+
   }
 #resultDiv {
   width: 190px;
@@ -35,12 +64,7 @@
   margin: -500px 10px 0 0;
 }
 
-#btWrap {
-  margin: 190px 0 0 50px;
-  height: 100px;
-  width: 600px;
-  border: 1px solid black;
-}
+
   div.ball  {
     width: 20px;
     height: 20px;
@@ -62,7 +86,7 @@
     background-repeat: no-repeat;
 
     /*border: 1px solid black;*/
-    background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png");
+    /*background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png");*/
   }
 
   img {
@@ -107,6 +131,82 @@ div#keeper {
       animation: keeperMove 5s infinite;*/
 }
 
+.btWraps {
+  height: 80px;
+  width: 80px;
+  /*border: 1px solid black;*/
+  display: inline;
+}
+
+#btWrap {
+  margin: -210px 0 0 20px;
+  height: 220px;
+  width: 170px;
+  /*border: 1px solid black;*/
+  padding: 0px;
+}
+
+#btLeftBottom, #btLeftCentre, #btLeftTop, #btCentreCentre, #btCentreTop, #btRigthBottom, #btRigthCentre, #btRigthTop {
+     background: url("../WDI_20_PROJECT_1/images/arrow.png") no-repeat;
+     background-size: 50px 50px;
+      
+      cursor: pointer;
+      border: none;
+      height: 50px;
+      text-decoration: none;
+      outline: none;
+      width: 50px;  
+      :active 
+
+      /*border: 1px solid black; */
+}
+button:active {
+    
+    box-shadow: 0 12px 16px 0 red;
+}
+
+a.button:active {
+     color:#000000;
+     -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+     -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+      
+  }
+
+
+#extraButton { 
+    background: url("../WDI_20_PROJECT_1/images/extraButton.png") no-repeat;
+    background-size: 50px 50px;
+     
+     cursor: none;
+     border: none;
+     height: 50px;
+     
+     width: 50px;  
+     /*border: 1px solid black; */
+
+ }
+#btLeftBottom { transform: rotate(-40deg) }
+#btLeftTop { transform: rotate(40deg) }
+#btCentreCentre{ transform: rotate(-90deg) }
+#btCentreTop{ transform: rotate(90deg) }
+#btRigthBottom{ transform: rotate(-130deg) }
+#btRigthCentre{ transform: rotate(-180deg) }
+#btRigthTop{ transform: rotate(130deg) }
+
+#btRestart
+{
+     background: url("../WDI_20_PROJECT_1/images/restart.jpeg") no-repeat;
+     background-size: 50px 50px;
+      
+      cursor: pointer;
+      border: none;
+      height: 50px;
+      
+      width: 50px;
+      
+
+    
+}
   /*@keyframes keeperMove {
       0%   {left:190px; top:140px;}
       50%  {left:430px; top:140px;}
