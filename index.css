@@ -21,28 +21,28 @@
   #goalDiv {
     /*margin-top: -300px;*/
     border: 1px solid black;
-    height: 500px;
-    width: 690px;
+    height: 450px;
+    width: 600px;
     
-    margin: 15px 0 0 15px;
+    margin: 50px 0 0 55px;
     background: url("../WDI_20_PROJECT_1/images/goal.png"); 
-    background-size: 670px 480px;
+    background-size: 600px 450px;
     position: absolute;
     /*left: -100px;*/
     top: -5px;
   }
 
   #missedDiv {
-    /*margin-top: -300px;*/
-    border: 1px solid black;
-    height: 500px;
-    width: 690px;
     
-    margin: 15px 0 0 15px;
+    border: 1px solid black;
+    height: 450px;
+    width: 600px;
+    
+    margin: 50px 0 0 55px;
     background: url("../WDI_20_PROJECT_1/images/missed.jpeg"); 
-    background-size: 670px 480px;
+    background-size: 600px 450px;
     position: absolute;
-    /*left: -100px;*/
+    
     top: -5px;
   }
 
@@ -162,7 +162,7 @@ div#keeper {
 }
 button:active {
     
-    box-shadow: 0 12px 16px 0 red;
+    box-shadow: 0 12px 16px 0 red};
 }
 
 a.button:active {

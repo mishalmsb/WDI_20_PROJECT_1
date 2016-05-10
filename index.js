@@ -1,7 +1,7 @@
 $(init)
 function init() { 
 
-  // $("#btRestart").hide();
+  $("#btRestart").hide();
   
   $("#goalDiv").hide();
   $("#missedDiv").hide();
@@ -32,7 +32,7 @@ function init() {
       $('#counterDiv').text(0);
       $('#plMove').text("Player 1 Turn");
       $("#btRestart").hide();
-      $("#allBt").show();
+      $("#btWrap").show();
  
   }
 
@@ -69,12 +69,12 @@ function init() {
         $("#missedDiv").hide();
       },4000);
 
-      if (counter < 2) { 
+      if (counter < 4) { 
         console.log(counter);
         $('#counterDiv').text(counter);
       } else {
         $('#counterDiv').text("GAME OVER");
-          $("#allBt").hide();
+          $("#btWrap").hide();
           $("#btRestart").show();
           $('#plMove').text("");
       };
