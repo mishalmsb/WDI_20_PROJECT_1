@@ -203,9 +203,13 @@ a.button:active {
       height: 50px;
       
       width: 50px;
-      
-
-    
+ 
+}
+#btRest {
+  margin: -50px 0 0 20px;
+  height: 50px;
+  width: 50px;
+  border:1px solid black;
 }
   /*@keyframes keeperMove {
       0%   {left:190px; top:140px;}

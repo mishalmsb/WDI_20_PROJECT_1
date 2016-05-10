@@ -1,8 +1,36 @@
 $(init)
 function init() { 
 
-  $("#btRestart").hide();
   
+  
+  
+  // audio.play();
+  
+
+  var goalSound = function (goal) {
+      //event when mouse is over the button
+      var gAudio = document.getElementById("audioGoal");
+
+      if (goal=="in") {
+          gAudio.src = "sounds/goal2.mp3";
+
+      } else if (goal=="out"){
+          gAudio.src = "sounds/missed.mp3";
+      } 
+      // else {
+      //     gAudio.src = "sounds/crowd2.mp3";
+      // }
+      gAudio.play();
+
+      var bgAudio = document.getElementById("audioCrowd");
+      bgAudio.src = "sounds/crowd2.mp3";
+      bgAudio.loop = true;
+      bgAudio.play();
+      
+  }
+  goalSound();
+
+  //$("#btRest").hide();
   $("#goalDiv").hide();
   $("#missedDiv").hide();
 
@@ -31,7 +59,7 @@ function init() {
       $('#p2ResultDiv').text(0);
       $('#counterDiv').text(0);
       $('#plMove').text("Player 1 Turn");
-      $("#btRestart").hide();
+      //$("#btRest").hide();
       $("#btWrap").show();
  
   }
@@ -75,12 +103,13 @@ function init() {
       } else {
         $('#counterDiv').text("GAME OVER");
           $("#btWrap").hide();
-          $("#btRestart").show();
+          $("#btRest").show();
           $('#plMove').text("");
       };
       $("#goalDiv").hide();
 
       
+
   };
 
   var computerMove = function(plMove) {
@@ -103,22 +132,21 @@ function init() {
       // var marLeft = parseInt("margin" + $(".ball").css("margin-left")) - 345
           
       if(inOut=="in") {
-          console.log("margin" + $(".ball").css("margin-left"));
-       
+          
+            
             setTimeout(function() {
                 console.log("margin" + $(".ball").css("margin-left"));
                 $(".ball").css({"margin-top": "-40px","margin-right": "0px","margin-bottom": "0px","margin-left": "350px"});
+                goalSound("in");
             }, 900);
             setTimeout(function() {
                $("#goalDiv").show();
+               goalSound();
             }, 2500);
+            
  
-          console.log("margin" + $(".ball").css("margin-left"));
-          // setTimeout(function() {
-          //     $(".ball").css({"margin-top": "-25px","margin-right": "0px","margin-bottom": "0px","margin-left": "260px"});
-          // }, 1500);
       } else if (inOut=="out") { 
- 
+          goalSound("out");
           setTimeout(function() {
               $(".ball").css({"margin-top": "30px","margin-right": "0px","margin-bottom": "0px","margin-left": "240px"});
           }, 900);
