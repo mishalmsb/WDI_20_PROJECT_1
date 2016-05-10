@@ -2,7 +2,7 @@ $(init)
 function init() { 
 
   
-  var numbGames = 10;
+  
   
   // audio.play();
   
@@ -76,7 +76,7 @@ function init() {
 
       var counter = parseInt($('#counterDiv').text()) + 1;
 
-       animePlayer();
+      // animePlayer();
       var comMove = computerMove(plMove);
       checkMoves(plMove,comMove);
       // console.log(plMove,comMove);
@@ -99,13 +99,8 @@ function init() {
         $("#goalDiv").hide();
         $("#missedDiv").hide();
       },4000);
-      var p1 = parseInt($('#p1ResultDiv').text());
-      var p2 = parseInt($('#p2ResultDiv').text());
-      console.log(p1, p2)
-      if (counter>numbGames && p1==p2) {
-        numbGames=numbGames+2;
-      }
-      if (counter < numbGames) { 
+
+      if (counter < 10) { 
         console.log(counter);
         $('#counterDiv').text(counter);
       } else {
@@ -305,14 +300,14 @@ function init() {
   //     console.log("Y" + (e.pageY - offset.top));
   //   })
   
-  var animePlayer = function() {
-      $('#plImg1').fadeOut("80");
-      $('#plImg2').fadeIn("90");
-      $('#plImg2').fadeOut("350");
-      $('#plImg3').fadeIn("300");
-      $('#plImg3').fadeOut("500");
-      $('#plImg1').fadeIn("90");
-  }
+  // var animePlayer = function() {
+  //     $('#plImg1').fadeOut("80");
+  //     $('#plImg2').fadeIn("90");
+  //     $('#plImg2').fadeOut("350");
+  //     $('#plImg3').fadeIn("300");
+  //     $('#plImg3').fadeOut("500");
+  //     $('#plImg1').fadeIn("90");
+  // }
 
 }
 
