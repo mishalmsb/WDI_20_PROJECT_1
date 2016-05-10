@@ -33,7 +33,10 @@ function init() {
   $("#btRest").hide();
   $("#goalDiv").hide();
   $("#missedDiv").hide();
-
+  $("#plScored").hide();
+  // $("#btWrap").hide();
+  
+  
 
 
   $("button").click(function() {
@@ -97,7 +100,7 @@ function init() {
         $("#missedDiv").hide();
       },4000);
 
-      if (counter < 2) { 
+      if (counter < 10) { 
         console.log(counter);
         $('#counterDiv').text(counter);
       } else {
