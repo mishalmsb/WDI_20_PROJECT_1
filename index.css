@@ -23,7 +23,7 @@
     width: 690px;
     text-align: center;
     margin: 15px 0 0 15px;
-    background: url("../WDI_20_PROJECT_1/images/field2.png") no-repeat;
+    background: url("images/field2.png") no-repeat;
     background-size: 690px 500px;
   }
   #goalDiv {
@@ -33,7 +33,7 @@
     width: 600px;
     
     margin: 50px 0 0 55px;
-    background: url("../WDI_20_PROJECT_1/images/goal.png"); 
+    background: url("images/goal.png"); 
     background-size: 600px 450px;
     position: absolute;
     /*left: -100px;*/
@@ -47,7 +47,7 @@
     width: 600px;
     
     margin: 50px 0 0 55px;
-    background: url("../WDI_20_PROJECT_1/images/missed.png"); 
+    background: url("images/missed.png"); 
     background-size: 600px 450px;
     position: absolute;
     
@@ -55,7 +55,7 @@
   }
 
   #baliza {
-    background: url("../WDI_20_PROJECT_1/images/baliza3.png") no-repeat; 
+    background: url("images/baliza3.png") no-repeat; 
     height: 200px;
     width: 640px;
     background-size: 640px 200px;
@@ -71,7 +71,7 @@
     height: 20px;
     margin: 150px 0 0 345px;
     /*margin: -90px 0 0 475px;*/
-    background: url("../WDI_20_PROJECT_1/images/ball.png") no-repeat;
+    background: url("images/ball.png") no-repeat;
     background-size: 20px;
     /*transition: 1s ease-in;*/
     transition: 1s ease-in-out;
@@ -134,7 +134,7 @@ div#p2ResultDiv{
   font-size: 20px;
 }
 #resultDiv {
-  background: url("../WDI_20_PROJECT_1/images/score3.png") no-repeat;
+  background: url("images/score3.png") no-repeat;
   width: 190px;
   height: 180px;
   background-size: 190px 180px;
@@ -145,7 +145,7 @@ div#p2ResultDiv{
 
 
 div#keeper {
-      background: url("../WDI_20_PROJECT_1/images/goolkeeper.png") no-repeat;
+      background: url("images/goolkeeper.png") no-repeat;
       /*margin: 105px 0 0 310px;*/
       /*transform: rotate(90deg);*/
 
@@ -176,7 +176,7 @@ div#keeper {
 }
 
 #btLeftBottom, #btLeftCentre, #btLeftTop, #btCentreCentre, #btCentreTop, #btRigthBottom, #btRigthCentre, #btRigthTop {
-     background: url("../WDI_20_PROJECT_1/images/arrow.png") no-repeat;
+     background: url("images/arrow.png") no-repeat;
      background-size: 50px 50px;
       
       cursor: pointer;
@@ -203,7 +203,7 @@ a.button:active {
 
 
 #extraButton { 
-    background: url("../WDI_20_PROJECT_1/images/extraButton.png") no-repeat;
+    background: url("images/extraButton.png") no-repeat;
     background-size: 50px 50px;
      
      cursor: none;
@@ -224,7 +224,7 @@ a.button:active {
 
 #btRestart
 {
-     background: url("../WDI_20_PROJECT_1/images/restart.jpeg") no-repeat;
+     background: url("images/restart.jpeg") no-repeat;
      background-size: 50px 50px;
       
       cursor: pointer;
