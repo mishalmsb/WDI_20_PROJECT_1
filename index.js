@@ -30,7 +30,7 @@ function init() {
   }
   goalSound();
 
-  //$("#btRest").hide();
+  $("#btRest").hide();
   $("#goalDiv").hide();
   $("#missedDiv").hide();
 
@@ -59,7 +59,7 @@ function init() {
       $('#p2ResultDiv').text(0);
       $('#counterDiv').text(0);
       $('#plMove').text("Player 1 Turn");
-      //$("#btRest").hide();
+      $("#btRest").hide();
       $("#btWrap").show();
  
   }
@@ -97,7 +97,7 @@ function init() {
         $("#missedDiv").hide();
       },4000);
 
-      if (counter < 4) { 
+      if (counter < 2) { 
         console.log(counter);
         $('#counterDiv').text(counter);
       } else {
