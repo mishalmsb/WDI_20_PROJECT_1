@@ -1,4 +1,5 @@
-  
+
+
   body {
     text-align: center;
     width: 1280px;
@@ -88,7 +89,7 @@
     width: 60px;
     background-size: 480px 160px;
     background-repeat: no-repeat;
-
+    border:none;
     /*border: 1px solid black;*/
     /*background-image: url("../WDI_20_PROJECT_1/images/scottpilgrim_multiple.png");*/
   }
@@ -96,18 +97,22 @@
   
   #plImg2, #plImg3 {
     display: none;
+    border:none;
   }
   #plImg1 {
       background: url("images/player1.png");
       background-size: 50px 95px;
+      border:none;
   }
   #plImg2 {
       background: url("images/player2.png");
       background-size: 50px 95px;
+      border:none;
   }
   #plImg3 {
       background: url("images/player3.png");
       background-size: 50px 95px;
+      border:none;
   }
 
   img {
